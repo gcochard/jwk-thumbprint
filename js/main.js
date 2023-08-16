@@ -10,7 +10,8 @@ jwkInput.addEventListener('change', async ev => {
     } else if(val.startsWith('-----BEGIN PUBLIC KEY-----')){
         for(const alg of ['RS256', 'ES256', 'ES384', 'ES521']){
             try{
-                jwk = await jose.importSPKI(val, alg);
+                const keylike = await jose.importSPKI(val, alg, {extractable: true});
+                jwk = await jose.exportJWK(keylike);
                 break;
             } catch(e){
                 continue;
