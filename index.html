@@ -10,22 +10,26 @@
     <div class="container">
       <h1>JWK Thumbprint demo</h1>
       <div class="row">
-        <div class="form-floating mb-3 col-md">
+        <div class="form-floating mb-3 col-6">
           <textarea class="form-control" id="jwk-input" style="height: 15em;"></textarea>
           <label for="jwk-input" class="form-control">Enter your JWK</label>
           <div class="form-text">
             JWK JSON and PEM public keys are supported
           </div>
         </div>
-        <div class="col-md">
+        <div class="col-6">
           <div class="row">
             <div class="col">Parsed JWK</div>
-            <pre class="col" id="jwk-output"></pre>
+          </div>
+          <div class="row">
+            <div class="col">
+              <pre id="jwk-output" style="text-wrap: balance; overflow-wrap: break-word;"></pre>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md">
+        <div class="col">
           <textarea class="form-control" id="thumbprint-output" style="height: 5em;" readonly></textarea>
           <div class="form-text">
             Click to copy thumbprint
