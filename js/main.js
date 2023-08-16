@@ -1,6 +1,7 @@
 import * as jose from 'https://cdn.jsdelivr.net/npm/jose@4.14.4/+esm';
 const jwkInput = document.getElementById('jwk-input');
 const thumbprintOutput = document.getElementById('thumbprint-output');
+const jwkOutput = document.getElementById('jwk-output');
 jwkInput.addEventListener('change', async ev => {
     const val = jwkInput.value;
     let jwk = {};
@@ -24,6 +25,7 @@ jwkInput.addEventListener('change', async ev => {
         thumbprintOutput.value = 'Invalid key';
         return;
     }
+    jwkOutput.innerText = JSON.stringify(jwk);
     try {
         const thumbprint = await jose.calculateJwkThumbprint(jwk);
         thumbprintOutput.value = thumbprint;
