@@ -21,13 +21,16 @@ jwkInput.addEventListener('change', async ev => {
         // TODO: support ssh public keys?
     }
     if(!jwk.kty){
-        thumbprintOutput.innerText = 'Invalid key';
+        thumbprintOutput.value = 'Invalid key';
         return;
     }
     try {
         const thumbprint = await jose.calculateJwkThumbprint(jwk);
-        thumbprintOutput.innerText = thumbprint;
+        thumbprintOutput.value = thumbprint;
     } catch(e){
-        thumbprintOutput.innerText = e.msg;
+        thumbprintOutput.value = e.msg;
     }
-})
+});
+thumbprintOutput.addEventListener('click', async ev => {
+    navigator.clipboard.writeText(thumbprintOutput.value);
+});

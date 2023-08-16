@@ -8,12 +8,18 @@
   </head>
   <body>
     <h1>JWK Thumbprint demo</h1>
-    <div>
-      Enter your JWK
-      <textarea id="jwk-input"></textarea>
+    <di class="form-floating mb-3">
+      <textarea class="form-control" id="jwk-input" style="height: 15em;"></textarea>
+      <label for="jwk-input" class="form-control">Enter your JWK</label>
+      <div class="form-text">
+        JWK JSON and PEM public keys are supported
+      </div>
     </div>
     <div>
-      <pre id="thumbprint-output"></pre>
+      <textarea class="form-control" id="thumbprint-output" style="height: 5em;" readonly></textarea>
+      <div class="form-text">
+        Click to copy thumbprint
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script type="module" src="js/main.js"></script>
